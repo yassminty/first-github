@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Collects : MonoBehaviour
 {
@@ -10,14 +11,15 @@ public class Collects : MonoBehaviour
     public int currentNanners = 0;
 
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider collectible)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collectible.gameObject.CompareTag("Player"))
         {
             //collision.gameObject.GetComponent<Player>().IncreaseScore(myScore);
 
             Debug.Log("wow! i got collected!");
             Destroy(gameObject);
+
 
         }
     }
